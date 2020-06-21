@@ -1,0 +1,15 @@
+.MODEL FLAT, C
+.CODE
+.STACK
+.686
+
+strcopyasm PROC C TO:DWORD, FROM:DWORD, LEN:DWORD
+    MOV ESI, FROM
+    MOV EDI, TO
+    MOV ECX, LEN
+    REP MOVSB
+    MOV AL, 0
+    MOV [EDI], AL
+    RET
+strcopyasm ENDP
+END
